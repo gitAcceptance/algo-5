@@ -8,7 +8,7 @@ import java.lang.Comparable;
 class BSTHW <Key extends Comparable<? super Key>, E>
     extends BST<Key,E> {
 
-    // put height() here
+    // Problem #1
 	public int height() {
 		if (this.root == null) {
 			return 0;
@@ -17,16 +17,45 @@ class BSTHW <Key extends Comparable<? super Key>, E>
 		}
 	}
 	
-	private int heightHelp(BSTNode<Key, E> rt) {
-		if (rt == null) {
+	private int heightHelp(BSTNode<Key, E> n) {
+		if (n == null) {
 			return 0;
 		} else {
-			return 1 + Math.max(heightHelp(this.root.left()), heightHelp(this.root.right()));
+			return 1 + Math.max(heightHelp(n.left()), heightHelp(n.right()));
 		}
 	}
 
-    // put leaves() here
+	// Problem #2
+	public int leaves() {
+	    return leaves(this.root);
+	}
+	
+	public int leaves(BSTNode<Key, E> node) {
+	    
+	    if (node == null) {
+	        return 0;
+	    } else if (node.left() == null && node.right() == null) {
+	        return 1;
+	    } else {
+	        return leaves(node.left()) + leaves(node.right());
+	    }
+	}
 
-    // put lessThanOrEqualTo(Key k) here
+	// Problem #3
+	public int lessThanOrEqualTo(Key k) {
+	    return leqHelp(root, k);
+	}
+	
+	public int leqHelp(BSTNode<Key, E> n, Key k) {
+	    if (n == null) {
+	        return 0;
+	    } else if (n.key().compareTo(k) <= 0) {
+	        return 1 + leqHelp(n.left(), k) + leqHelp(n.right(), k);
+	    } else {
+	        return leqHelp(n.left(), k);
+	    }
+	    
+	}
+	
 
 }
