@@ -24,7 +24,6 @@ public class TestBSTHW {
 		tree.insert(20, 20);
 		tree.insert(40, 40);
 	    assertEquals("Two child nodes off the root node.", 2, tree.height());
-	    
 	}
 		
 	

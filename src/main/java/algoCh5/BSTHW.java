@@ -31,7 +31,6 @@ class BSTHW <Key extends Comparable<? super Key>, E>
 	}
 	
 	public int leaves(BSTNode<Key, E> node) {
-	    
 	    if (node == null) {
 	        return 0;
 	    } else if (node.left() == null && node.right() == null) {

@@ -14,8 +14,20 @@ class BSTT <Key extends Comparable<? super Key>, E>
              extends BST <Key, E> {
 
 
+    
     // override inserthelp()
-
+    /*
+    protected BSTNode<Key,E> inserthelp(BSTNode<Key,E> rt, Key k, E e) {
+        if (rt == null) 
+           // TODO change this constructor to use the new threaded one
+           return new BSTNode<Key,E>(k, e);
+        if (rt.key().compareTo(k) > 0)
+           rt.setLeft(inserthelp(rt.left(), k, e));
+        else
+          rt.setRight(inserthelp(rt.right(), k, e));
+        return rt;
+    }
+    */
     // override printhelp()
 
 
